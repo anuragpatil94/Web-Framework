@@ -1,0 +1,23 @@
+{
+  "name": "web-framework",
+  "version": "1.0.0",
+  "description": "A Typescript Web Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuragpatil94/Web-Framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anuragpatil94/Web-Framework/issues"
+  },
+  "homepage": "https://github.com/anuragpatil94/Web-Framework#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
