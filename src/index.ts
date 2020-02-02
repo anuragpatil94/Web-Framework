@@ -1,13 +1,8 @@
+import axios from "axios";
 import { User } from "./models/User";
 
-const user = new User({ name: "ANurag", age: 20 });
-
-user.on("change", () => {
-  console.log("This is a Callback");
-});
-user.on("save", () => {
-  console.log("Save");
-});
-
-user.trigger("save");
-console.log(user);
+const user1 = new User({ id: 1 });
+user1.set({ name: "NewName", age: 23 });
+user1.save();
+// const user2 = new User({ name: "New User", age: 22 });
+// user2.save();

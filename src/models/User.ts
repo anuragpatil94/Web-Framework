@@ -1,5 +1,8 @@
+import Axios, { AxiosResponse } from "axios";
+
 // To make a property optional ?:
 interface UserProps {
+  id?: number;
   name?: string;
   age?: number;
 }
@@ -37,5 +40,24 @@ export class User {
     handlers.forEach(callback => {
       callback();
     });
+  }
+
+  fetch(): void {
+    Axios.get(`http://localhost:3000/users/${this.get("id")}`).then(
+      (response: AxiosResponse): void => {
+        this.set(response.data);
+      }
+    );
+  }
+
+  save(): void {
+    const id = this.get("id");
+    if (id) {
+      //put
+      Axios.put(`http://localhost:3000/users/${id}`, this.data);
+    } else {
+      //post
+      Axios.post(`http://localhost:3000/users`, this.data);
+    }
   }
 }
