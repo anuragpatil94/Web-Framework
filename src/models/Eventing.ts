@@ -1,7 +1,9 @@
+import { IEvents } from "./Model";
+
 // Type Alias
 type Callback = () => void;
 
-export class Eventing {
+export class Eventing implements IEvents {
   // To store all the events
   private events: { [key: string]: Callback[] } = {};
 

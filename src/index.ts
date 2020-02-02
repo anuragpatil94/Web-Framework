@@ -13,9 +13,10 @@ import { User } from "./models/User";
 // });
 // user1.fetch();
 
-const user1 = new User({ id: 1, name: "Newest Name", age: 54 });
-user1.on("save", () => {
+const user1 = User.buildUser({ id: 1 });
+user1.on("change", () => {
   console.log(user1);
 });
-user1.save();
+// user1.save();
+user1.fetch();
 // console.log(user1.get("name"));

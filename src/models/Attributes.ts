@@ -1,6 +1,6 @@
-import { UserProps } from "./User";
+import { IModelAttributes } from "./Model";
 
-export class Attributes<T> {
+export class Attributes<T> implements IModelAttributes<T> {
   constructor(private data: T) {}
 
   /**
