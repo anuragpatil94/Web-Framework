@@ -32,4 +32,26 @@ export class User {
   get get() {
     return this.attributes.get;
   }
+
+  set(update: UserProps): void {
+    this.attributes.set(update);
+    this.events.trigger("change");
+  }
+
+  fetch(): void {
+    const id = this.attributes.get("id");
+    if (typeof id != "number") {
+      throw new Error(`Cannot fetch without an id`);
+    }
+
+    this.sync.fetch(id).then((response: AxiosResponse): void => {
+      /**
+       * why not this.attributes.set?
+       * i think we can go either way the only difference is
+       * that we also want to trigger 'change'
+       * */
+
+      this.set(response.data);
+    });
+  }
 }
