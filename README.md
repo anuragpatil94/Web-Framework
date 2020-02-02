@@ -33,12 +33,14 @@ A Typescript Web Framework
 
 - Takes all the events for the given event and trigger them one by one
 
-
 ## Key
 
 - Since this is a framework, Anticipate what others who will use the framework wants.
 
 ## Commands
+
+- Start Application `parcel index.html`
+- Start JSON Server `json-server -w db.json`
 
 ## Packages
 
