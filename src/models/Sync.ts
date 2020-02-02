@@ -19,10 +19,10 @@ export class Sync<T extends HasId> {
     const { id } = data;
     if (id) {
       //put
-      return Axios.put(`{this.rootUrl}/${id}`, data);
+      return Axios.put(`${this.rootUrl}/${id}`, data);
     } else {
       //post
-      return Axios.post(`{this.rootUrl}`, data);
+      return Axios.post(`${this.rootUrl}`, data);
     }
   }
 }

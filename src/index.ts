@@ -7,12 +7,15 @@ import { User } from "./models/User";
  * 3) fetch data from database from db for id = 1
  * 4) internally trigger change event which we set in step 2
  */
-const user1 = new User({ id: 1 });
-user1.on("change", () => {
+// const user1 = new User({ id: 1 });
+// user1.on("change", () => {
+//   console.log(user1);
+// });
+// user1.fetch();
+
+const user1 = new User({ id: 1, name: "Newest Name", age: 54 });
+user1.on("save", () => {
   console.log(user1);
 });
-user1.fetch();
-
-// const user1 = new User({ name: "aNu", age: 123 });
-// user1.set({ name: "kA" });
+user1.save();
 // console.log(user1.get("name"));
