@@ -27,17 +27,24 @@ export class Model<T extends HasId> {
     private sync: ISync<T>
   ) {}
 
-  get on() {
-    return this.events.on;
-  }
+  /**
+   * These are equivalent to get methods
+   * This can be done only when events  and attributes are first initialized in constructor.
+   * This is because of order of executing constructor and outside initialized variables
+   */
+  on = this.events.on;
+  trigger = this.events.trigger;
+  get = this.attributes.get;
 
-  get trigger() {
-    return this.events.trigger;
-  }
-
-  get get() {
-    return this.attributes.get;
-  }
+  // get on() {
+  //   return this.events.on;
+  // }
+  // get trigger() {
+  //   return this.events.trigger;
+  // }
+  // get get() {
+  //   return this.attributes.get;
+  // }
 
   set(update: T): void {
     this.attributes.set(update);
