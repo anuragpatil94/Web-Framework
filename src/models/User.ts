@@ -1,4 +1,5 @@
 import Axios, { AxiosResponse } from "axios";
+import { Eventing } from "./Eventing";
 
 // To make a property optional ?:
 interface UserProps {
@@ -7,11 +8,9 @@ interface UserProps {
   age?: number;
 }
 
-// Type Alias
-type Callback = () => void;
 export class User {
-  // To store all the events
-  private events: { [key: string]: Callback[] } = {};
+  // No need to create interface since Eventing is Hardcoded
+  events: Eventing = new Eventing();
 
   constructor(private data: UserProps) {}
 
@@ -21,25 +20,6 @@ export class User {
 
   set(update: UserProps): void {
     Object.assign(this.data, update);
-  }
-
-  on(eventName: string, callback: Callback): void {
-    // since this.events[eventName] can either be array of callbacks or undefined
-    const handlers = this.events[eventName] || [];
-    handlers.push(callback);
-    this.events[eventName] = handlers;
-  }
-
-  trigger(eventName: string): void {
-    const handlers = this.events[eventName];
-
-    if (!handlers || handlers.length === 0) {
-      return;
-    }
-
-    handlers.forEach(callback => {
-      callback();
-    });
   }
 
   fetch(): void {
