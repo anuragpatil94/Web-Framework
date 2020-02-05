@@ -19,12 +19,10 @@ export class UserForm {
   }
 
   onSetAgeClick = (): void => {
-    event.preventDefault();
     this.model.setRandomAge();
   };
 
   onSetNameClick = (): void => {
-    event.preventDefault();
     const input = this.parent.querySelector("input");
     if (input) {
       const name = input.value;
@@ -38,11 +36,9 @@ export class UserForm {
                 <h1>User Form</H1>
                 <div>User Name:  ${this.model.get("name")}</div>
                 <div>User Age:  ${this.model.get("age")}</div>
-                <form>
-                    <input placeholder="${this.model.get("name")}"></input>
-                    <button class="set-name">Change Name</button>
-                    <button class="set-age">Set Random Age</button>
-                </form>
+                <input placeholder="${this.model.get("name")}"></input>
+                <button class="set-name">Change Name</button>
+                <button class="set-age">Set Random Age</button>
             </div>
         `;
   }
